@@ -1,0 +1,318 @@
+    1  ls
+    2  ssh-keygen
+    3  cat ~/.ssh/id_rsa.pub
+    4  git clone git@github.com:mikepeloso/os1.git
+    5  sudo -i
+    6  git clone git@github.com:mikepeloso/os1.git
+    7  git config --global user.name 'Michael Peloso'
+    8  git config --global user.email 'mikepeloso@gmail.com'
+    9  cd os1
+   10  echo Test edit to README.md >> README.md
+   11  git add README.md
+   12  git commit -m 'First commit; testing'
+   13  git push
+   14  podman --version
+   15  sudo -i
+   16  exit
+   17  podman ps
+   18  podman images
+   19  podman run -it nginx bash
+   20  podman ps
+   21  podman run -d library/nginx
+   22  podman ps
+   23  podman stop 1
+   24  podman ps
+   25  podman ps -a
+   26  sudo dnf install -y go
+   27  podman images
+   28  history | less
+   29  git clone https://github.com/PacktWorkshops/Kubernetes-Workshop.git
+   30  ls
+   31  cd Kubernetes-Workshop/
+   32  ls
+   33  cd Chapter01
+   34  ls
+   35  cd Exercise1.01/
+   36  ls
+   37  vim main.go
+   38  vi main.go 
+   39  ls
+   40  vi Dockerfile 
+   41  go run main.go
+   42  podman ps
+   43  podman stop 9
+   44  go run main.go
+   45  podman rm 9
+   46  podman ps
+   47  podman images
+   48  podman ps -a
+   49  podman rm 2
+   50  podman rm 1
+   51  go run main.go
+   52  netstat
+   53  sudo dnf install -y net-tools
+   54  sudo netstat -pna | grep 8080
+   55  sudo lsof -i -P -n | grep 8080
+   56  ps | grep 20171
+   57  ps
+   58  sudo ps
+   59  podman ps
+   60  podman ps -a
+   61  go run main.go
+   62  curl http://localhost:8080
+   63  ps | grep 20171
+   64  ps
+   65  sudo netstat -pna | grep 8080
+   66  ps -aux | grep 20171
+   67  man ps
+   68  ps -e | grep 20171
+   69  ps stop 20171
+   70  man ps
+   71  stop 20171
+   72  man kill
+   73  kill 20171
+   74  sudo kill 20171
+   75  go run main.go
+   76  CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o k8s-for-beginners main.go
+   77  ls
+   78  podman build -t k8s-for-beginners:v0.0.1 .
+   79  podman images
+   80  podman ps
+   81  podman run -d -p 8080:80 nginx
+   82  curl localhost:8080
+   83  podman run -it 67b --net container:67b nicolaka/netshoot
+   84  podman search netshoot
+   85  podman pull docker.io/nicolaka/netshoot 
+   86  podman ps
+   87  podman run -it 67b --net container:67b nicolaka/netshoot
+   88  podman run -it 67b --net container:67b docker.io/nicolaka/netshoot
+   89  podman run -d docker.io/nicolaka/netshoot 
+   90  docker run -it --net container:67 nicolaka/netshoot
+   91  podman run -it --net container:67 nicolaka/netshoot
+   92  podman ps
+   93  podman run -it --net container:67 nicolaka/netshoot
+   94  podman ps
+   95  podman stop 24
+   96  podman ps
+   97  podman run -d -h nginx01 -p 8081:80 nginx
+   98  podman exec 7c hostname
+   99  podman exec -it 7c bash
+  100  podman ps
+  101  uid
+  102  uid_map
+  103  cat /proc/$$/uid_map
+  104  podman exec -it 67 bash
+  105  podman ps
+  106  cat /etc/passwd
+  107  clear
+  108  sudo dnf install -y man-pages
+  109  podman ps
+  110  podman inspect --format '{{.State.Pid}}' 67
+  111  podman inspect --format '{{.State.Pid}}' 7c
+  112  ps -ef | grep nginx
+  113  ls -l /proc/38575/ns
+  114  podman exec -it 67 sh
+  115  podman rm -f $(podman ps -aq)
+  116  podman ps
+  117  podman stop 67
+  118  podman ps
+  119  podman rm 67
+  120  podman run -d packtworkshops/the-kubernetes-workshop:k8s-forbeginners
+  121  ls
+  122  cd Kubernetes-Workshop/
+  123  ls
+  124  cd Chapter01
+  125  ls
+  126  cd Exercise1.01/
+  127  ls
+  128  podman run -d k8s-for-beginners 
+  129  podman search k8s-for-beginners
+  130  podman pull docker.io/rogitech/k8s-for-beginners
+  131  history
+  132  podman build -t k8s-for-beginners:v0.0.1 .
+  133  ls
+  134  podman run -d localhost/k8s-for-beginners:v0.0.1
+  135  podman ps
+  136  podman run -it --net container:0f nicolaka/netshoot
+  137  podman run --net host -d localhost/k8s-for-beginners:v0.0.1
+  138  podman ps
+  139  podman inspect --format '{{.State.Pid}}' 2a
+  140  ls -l /proc/2a/ns/net
+  141  ls -l /proc/55834/ns/net
+  142  ls -l /proc/1/ns/net
+  143  sudo ls -l /proc/1/ns/net
+  144  podman ps
+  145  podman rm 2a
+  146  podman rm -f 2a
+  147  podman ps
+  148  find /sys/fs/cgroup/memory/podman/* -type d
+  149  podman run -d localhost/k8s-for-beginners:v0.0.1
+  150  find /sys/fs/cgroup/memory/podman/* -type d
+  151  cd /sys
+  152  cd /fs
+  153  ls
+  154  cd fs
+  155  cd cgroup/
+  156  ls
+  157  cd machine.slice/
+  158  ls
+  159  cd
+  160  clear
+  161  podman inspect --format '{{.State.Pid}}' 0f
+  162  ls -l /proc/55569/ns/net
+  163  podman rm -f $(podman ps -aq)
+  164  podman ps
+  165  cat /proc/cpuinfo
+  166  lscpu | grep max
+  167  lscpu
+  168  free
+  169  free -h
+  170  top
+  171  clear
+  172  ls
+  173  cd Kubernetes-Workshop/
+  174  ls
+  175  cd Chapter01
+  176  ls
+  177  cd Activity1.01/
+  178  ls
+  179  cd pageview
+  180  ls
+  181  cat main.go 
+  182  cat Dockerfile 
+  183  history
+  184  CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o pageview-app main.go
+  185  podman build -t pageview-app:v0.0.1 .
+  186  ls
+  187  cat Dockerfile 
+  188  cat main.go 
+  189  CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main
+  190  podman build -t student/pageview-app:v0.0.1 .
+  191  CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o pageview main.go
+  192  podman build -t student/pageview:v0.0.1 .
+  193  pwd
+  194  CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main main.go
+  195  podman build -t student/main:v0.0.1 .
+  196  podman run --name main -p 8080:8080 -d student/main:v0.0.1
+  197  curl localhost:8080
+  198  podman logout docker.io
+  199  podman pull dockr.io/student/main:v0.0.1
+  200  podman pull docker.io/student/main:v0.0.1
+  201  podman commit
+  202  podman commit main
+  203  podman push
+  204  podman push main
+  205  podman push ad
+  206  podman push --help
+  207  podman push ad mpeloso3rd/classwork:main
+  208  docker push mpeloso3rd/classwork:tagname
+  209  podman push mpeloso3rd/classwork:tagname
+  210  podman push ad mpeloso3rd/classwork:tagname
+  211  podman login --help
+  212  podman --username mpeloso3rd --password Mike@9400telescope
+  213  podman login --username mpeloso3rd --password Mike@9400telescope
+  214  podman push mpeloso3rd/classwork:tagname
+  215  podman push ad mpeloso3rd/classwork:main
+  216  podman push mpeloso3rd/classwork:main
+  217  podman ps
+  218  podman images
+  219  podman push localhost/student/main mpeloso3rd/classwork:main
+  220  podman push --help
+  221  podman images
+  222  podman push ad785ce3d308 mpeloso3rd/classwork:main
+  223  podman push 297f7638fc0b mpeloso3rd/classwork:main
+  224  podman ps
+  225  podman rm -f 44
+  226  podman push 297f7638fc0b mpeloso3rd/classwork:main
+  227  podman push --help
+  228  podman push mpeloso3rd/classwork:tagname
+  229  podman push 297f7638fc0b mpeloso3rd/classwork:tagname
+  230  podman login --username mpeloso3rd --password Mike@9400telescope
+  231  podman load
+  232  podman commit
+  233  podman tag --help
+  234  podman tag 297f7638fc0b mpeloso3rd/classwork:main
+  235  podman push 297f7638fc0b mpeloso3rd/classwork:main
+  236  sudo podman push 297f7638fc0b mpeloso3rd/classwork:main
+  237  podman push --remove-signatures  297f7638fc0b mpeloso3rd/classwork:main
+  238  podman push --creds(mpeloso3rd:Mike@9400telescope) 297f7638fc0b mpeloso3rd/classwork:main
+  239  podman push --creds (mpeloso3rd:Mike@9400telescope) 297f7638fc0b mpeloso3rd/classwork:main
+  240  podman push --creds mpeloso3rd:Mike@9400telescope 297f7638fc0b mpeloso3rd/classwork:main
+  241  podman pull mpeloso3rd/classwork:main
+  242  podman pull --creds mpeloso3rd:Mike@9400telescope mpeloso3rd/classwork:main
+  243  podman search main
+  244  podman search docker.io/mpeloso3rd
+  245  podman search docker.io/mpeloso3rd/classwork
+  246  podman pull docker.io/mpeloso3rd/classwork
+  247  podman pull docker.io/mpeloso3rd/classwork:main
+  248  podman images
+  249  ls
+  250  cd Kubernetes-Workshop/
+  251  ls
+  252  cd Chapter02
+  253  ls
+  254  cd Exercise02.02
+  255  ls
+  256  vi k8s-for-beginners-pod.yaml 
+  257  cd
+  258  sudo dnf install -y wget && https://downloads-openshift-console.apps.training.qeaq.p1.openshiftapps.com/amd64/linux/oc.tar
+  259  ls
+  260  wget https://downloads-openshift-console.apps.training.qeaq.p1.openshiftapps.com/amd64/linux/oc.tar
+  261  tar xf oc.tar
+  262  ls -l
+  263  ls -lh
+  264  ./oc login --token=sha256~HT3u12nZZ3Yf3_H1ivUgC3XkQH8RZ4ZBl4aozQRgohc --server=https://api.training.qeaq.p1.openshiftapps.com:6443
+  265  ./oc whoami
+  266  alias oc=~/oc
+  267  cd Kubernetes-Workshop/
+  268  ls
+  269  cd Chapter02
+  270  ls
+  271  cd Exercise02.02
+  272  ls
+  273  vi k8s-for-beginners-pod.yaml 
+  274  cp k8s-for-beginners-pod.yaml main.yml
+  275  vi main.yml 
+  276  oc apply -f main.yml 
+  277  vi main.yml 
+  278  oc apply -f main.yml 
+  279  oc apply -f k8s-for-beginners-pod.yaml 
+  280  oc whoami
+  281  oc status
+  282  oc login -u system:admin --config=/etc/origin/master/admin.kubeconfig
+  283  oc get pods
+  284  oc cluster-info
+  285  oc cluster-info dump
+  286  man kubectl
+  287  man oc
+  288  clear
+  289  oc create -f main.yml 
+  290  Error from server (Forbidden): error when creating "main.yml": pods is forbidden: User "mikepeloso" cannot create resource "pods" in API
+  291   group "" in the namespace "default"
+  292  clear
+  293  podman images
+  294  vi main.yml 
+  295  oc create -f main.yml 
+  296  oc apply -f main.yml 
+  297  oc --help
+  298  oc new-project --help
+  299  oc new-project myfirstpod
+  300  oc create -f main.yml 
+  301  oc get pod
+  302  oc get pod -o wide
+  303  curl 10.128.9.181
+  304  podman images
+  305  podman run -it docker.io/nicolaka/netshoot
+  306  oc get pod -o wide
+  307  history | less
+  308   podman run -it 67b --net container:67b nicolaka/netshoot
+  309  podman ps
+  310  cp main.yml netshoot.yml
+  311  vi netshoot.yml 
+  312  oc create -f netshoot.yml 
+  313  oc get pod
+  314  oc rsh netshoot
+  315  oc get pod
+  316  history
+  317  cd
+  318  history >> history.txt

@@ -1,0 +1,8 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myfirstpod 
+spec:
+  containers:
+  - name: myfirstpod
+    image: docker.io/mpeloso3rd/classwork:main
